@@ -1,7 +1,7 @@
 {
   "name": "little-lemon-capstone-ts",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "prettify": "pretty-quick --staged",
     "test": "vitest",
-    "prepare": "simple-git-hooks"
+    "postinstall": "simple-git-hooks"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -32,6 +32,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "jsdom": "^26.1.0",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.6.2",
     "pretty-quick": "^4.2.2",
     "simple-git-hooks": "^2.13.0",
@@ -40,7 +41,13 @@
     "vite": "^7.0.4",
     "vitest": "^3.2.4"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint ./src --max-warnings=0",
+      "pretty-quick --staged"
+    ]
+  },
   "simple-git-hooks": {
-    "pre-commit": "npx pretty-quick --staged"
+    "pre-commit": "npx lint-staged"
   }
 }
