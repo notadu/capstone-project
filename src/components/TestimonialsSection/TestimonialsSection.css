@@ -1,0 +1,17 @@
+.testimonials {
+  background-color: var(--primary-color-green);
+  color: #fff;
+}
+
+.testimonials-list {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  overflow: auto;
+}
+
+.testimonials-item {
+  border: 1px solid #fff;
+  padding: 1rem;
+  border-radius: 16px;
+}

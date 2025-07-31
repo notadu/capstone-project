@@ -1,0 +1,19 @@
+.about .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.founders img {
+  width: 100%;
+  min-width: 300px;
+  max-width: 800px;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .about .container {
+    flex-direction: column;
+  }
+}

@@ -23,6 +23,7 @@ export default tseslint.config([
       globals: globals.browser,
     },
     rules: {
+      "import/no-unresolved": ["error", { ignore: ["\\.svg\\?react$"] }],
       "import/order": [
         "error",
         {

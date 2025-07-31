@@ -1,0 +1,13 @@
+.menu {
+  margin-bottom: 50px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.menu-item img {
+  width: 200px;
+  height: auto;
+}
