@@ -7,7 +7,7 @@ import timeReducer from "../../reducers/timeReducer";
 import Loader from "../Loader";
 
 const About = lazy(() => import("../About"));
-const BookingForm = lazy(() => import("../Booking"));
+const BookingForm = lazy(() => import("../BookingForm"));
 const BookingConfirmation = lazy(() => import("../BookingConfirmation"));
 const Home = lazy(() => import("../Home"));
 const LoginForm = lazy(() => import("../Login"));

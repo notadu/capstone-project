@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import Booking from "./Booking";
+import BookingForm from "./BookingForm";
 
 vi.mock("react-router-dom", () => ({
   useNavigate: () => vi.fn(),
@@ -8,11 +8,11 @@ vi.mock("react-router-dom", () => ({
 
 describe("BookingForm", () => {
   test("renders the booking form heading and all fields", () => {
-    render(<Booking availableTimes={["17:00"]} />);
+    render(<BookingForm availableTimes={["17:00"]} />);
     const headingElement = screen.getByText("Book a Table");
     const nameInput = screen.getByLabelText("Name");
-    const dateInput = screen.getByLabelText("Choose date");
-    const timeSelect = screen.getByLabelText("Choose time");
+    const dateInput = screen.getByLabelText("Date");
+    const timeSelect = screen.getByLabelText("Time");
     const guestsInput = screen.getByLabelText("Number of guests");
     const occasionSelect = screen.getByLabelText("Occasion");
 

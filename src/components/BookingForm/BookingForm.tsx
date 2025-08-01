@@ -28,7 +28,7 @@ const validationSchema = object().shape({
   occasion: string().required("The occasion is required"),
 });
 
-const Booking = ({
+const BookingForm = ({
   availableTimes,
   onDateChange,
 }: {
@@ -165,4 +165,4 @@ const Booking = ({
   );
 };
 
-export default Booking;
+export default BookingForm;
