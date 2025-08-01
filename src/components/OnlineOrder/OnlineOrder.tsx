@@ -2,9 +2,11 @@ import { useMemo, useState } from "react";
 
 import { useFormik } from "formik";
 import { useLocation } from "react-router-dom";
-import * as Yup from "yup";
+import { string, object, array } from "yup";
 
 import { MENU_ITEMS } from "../../constants/menu";
+
+import "./OnlineOrder.css";
 
 type MenuItem = {
   id: string;
@@ -42,9 +44,9 @@ const Order = () => {
       name: "",
       order: initialOrderItems,
     },
-    validationSchema: Yup.object({
-      name: Yup.string().required("Name is required"),
-      order: Yup.array().min(1, "Please add at least one item to your order"),
+    validationSchema: object({
+      name: string().required("Required"),
+      order: array().min(1, "Please add at least one item to your order"),
     }),
     onSubmit: () => {
       if (formik.values.order.length) {
@@ -94,8 +96,9 @@ const Order = () => {
 
   if (submitted) {
     return (
-      <div>
-        <h2>Thank you for your order, {formik.values.name}!</h2>
+      <div className="order container">
+        <h1 className="title">The food is ordered!</h1>
+        <p>Thank you for your order, {formik.values.name}!</p>
         <p>Your food will be ready soon.</p>
       </div>
     );
@@ -105,7 +108,8 @@ const Order = () => {
     <div className="order container">
       <form onSubmit={formik.handleSubmit}>
         <h1 className="title">Online Order</h1>
-        <label htmlFor="name">Your Name</label>
+
+        <label htmlFor="name">Name</label>
         <input
           id="name"
           name="name"
@@ -116,10 +120,11 @@ const Order = () => {
         {formik.touched.name && formik.errors.name && (
           <div style={{ color: "red" }}>{formik.errors.name}</div>
         )}
+
         <h2>Menu</h2>
-        <ul>
+        <ul className="order-list">
           {MENU_ITEMS.map((item) => (
-            <li key={item.id}>
+            <li className="order-list-item" key={item.id}>
               {item.name} - ${item.price}{" "}
               <button type="button" onClick={() => addToOrder(item)}>
                 Add
@@ -131,14 +136,15 @@ const Order = () => {
         {formik.values.order.length === 0 ? (
           <p>No items selected.</p>
         ) : (
-          <ul>
+          <ul className="order-list">
             {formik.values.order.map((o) => (
-              <li key={o.dish.id}>
+              <li key={o.dish.id} className="order-list-item">
                 <span>
                   {o.dish.name} x {o.quantity} = ${o.dish.price * o.quantity}
                 </span>
                 <button
                   type="button"
+                  className="secondary"
                   onClick={() => removeFromOrder(o.dish.id)}
                 >
                   Remove

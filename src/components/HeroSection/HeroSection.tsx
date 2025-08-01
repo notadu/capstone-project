@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
-import "./HeroSection.css";
 import { ROUTES } from "../../constants/routes";
+
+import "./HeroSection.css";
 
 const HeroSection = () => {
   return (

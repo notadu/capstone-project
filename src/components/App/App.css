@@ -6,6 +6,7 @@
 
 main {
   flex: 1;
+  position: relative;
 }
 
 .display-title {
@@ -31,21 +32,6 @@ main {
   padding: 2rem;
 }
 
-.button {
-  padding: 10px 24px;
-  border-radius: 5px;
-  background-color: var(--primary-color-green);
-  color: var(--primary-color-yellow);
-  font-family: var(--secondary-font-family);
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.call-to-action {
-  background-color: var(--primary-color-yellow);
-  color: var(--primary-color-green);
-}
-
 .title {
   font-family: var(--primary-font-family);
   font-weight: normal;
@@ -66,8 +52,76 @@ main {
   font-family: var(--secondary-font-family);
 }
 
+.error-text {
+  color: red;
+}
+
+p,
 .paragraph-text {
   font-size: 16px;
   font-weight: normal;
   font-family: var(--secondary-font-family);
+}
+
+button,
+.button {
+  padding: 10px 24px;
+  border-radius: 5px;
+  background-color: var(--primary-color-yellow);
+  color: var(--primary-color-green);
+  font-family: var(--secondary-font-family);
+  text-decoration: none;
+  font-size: 18px;
+  border: none;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:not(:disabled),
+.button:not(:disabled) {
+  cursor: pointer;
+}
+
+button:not(:disabled):hover,
+.button:not(:disabled):hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+}
+
+button.secondary,
+.button.secondary {
+  background-color: var(--primary-color-green);
+  color: var(--primary-color-yellow);
+}
+
+input,
+select {
+  border-radius: 8px;
+  padding: 8px;
+  border-width: 2px;
+  border-color: var(--primary-color-green);
+  border-style: solid;
+  transition: border-color 0.3s ease-in-out;
+  font-size: 24px;
+  font-family: var(--secondary-font-family);
+  width: 100%;
+  max-width: 250px;
+}
+
+input.error,
+select.error {
+  border-color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
 }

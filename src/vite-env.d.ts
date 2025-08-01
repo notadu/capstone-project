@@ -7,7 +7,7 @@ declare global {
     name: string;
     date: string;
     time: string;
-    guests: number;
+    guests: string | number;
     occasion: string;
   }): boolean;
 }

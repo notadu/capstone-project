@@ -4,12 +4,25 @@ const BookingConfirmation = () => {
   const { state } = useLocation();
 
   return (
-    <div className="booking-confirmation">
-      <h1>Booking Confirmed</h1>
+    <div className="booking-confirmation container">
+      <h1 className="title">Booking Confirmed</h1>
       <p>Your booking has been successfully confirmed.</p>
-      <p>Thank you for choosing Little Lemon!</p>
       {state?.bookingDetails && (
-        <div>{`${state?.bookingDetails.name} ${state?.bookingDetails.date} ${state?.bookingDetails.time} ${state?.bookingDetails.guests} guests`}</div>
+        <div>
+          <p>{`Thank you, ${state?.bookingDetails.name}, for choosing Little Lemon!`}</p>
+          <h3>Reservation details</h3>
+          <ul>
+            <li>
+              <p>{`Date: ${state?.bookingDetails.date}`}</p>
+            </li>
+            <li>
+              <p>{`Time: ${state?.bookingDetails.time}`}</p>
+            </li>
+            <li>
+              <p>{`Number of guests: ${state?.bookingDetails.guests}`}</p>
+            </li>
+          </ul>
+        </div>
       )}
     </div>
   );

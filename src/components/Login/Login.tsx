@@ -8,8 +8,8 @@ import { ROUTES } from "../../constants/routes";
 import { AuthContext } from "../../context/AuthContext";
 
 const loginSchema = object().shape({
-  email: string().email("Invalid email").required("Email is required"),
-  password: string().required("Password is required"),
+  email: string().email("Invalid email").required("Required"),
+  password: string().required("Required"),
 });
 
 const Login = () => {
@@ -34,12 +34,15 @@ const Login = () => {
         {({ isSubmitting }) => (
           <Form>
             <h1>Login</h1>
-            <label htmlFor="email">Email:</label>
-            <Field id="email" name="email" type="email" />
+
+            <label htmlFor="email">Email</label>
+            <Field id="email" name="email" type="email" autocomplete="off" />
             <ErrorMessage name="email" component="div" />
-            <label htmlFor="password">Password:</label>
+
+            <label htmlFor="password">Password</label>
             <Field id="password" name="password" type="password" />
             <ErrorMessage name="password" component="div" />
+
             <button type="submit" disabled={isSubmitting}>
               Login
             </button>

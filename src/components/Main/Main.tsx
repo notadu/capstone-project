@@ -14,8 +14,6 @@ const LoginForm = lazy(() => import("../Login"));
 const Menu = lazy(() => import("../Menu"));
 const Order = lazy(() => import("../OnlineOrder"));
 
-import "./Main.css";
-
 const Main = () => {
   const defaultDate = new Date();
 
