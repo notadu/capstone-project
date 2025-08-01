@@ -1,16 +1,20 @@
-import { useCallback, useEffect, useReducer } from "react";
+import { lazy, Suspense, useCallback, useEffect, useReducer } from "react";
 
 import { Route, Routes } from "react-router-dom";
 
 import { ROUTES } from "../../constants/routes";
 import timeReducer from "../../reducers/timeReducer";
-import About from "../About";
-import BookingForm from "../Booking";
-import BookingConfirmation from "../BookingConfirmation";
-import Home from "../Home";
-import LoginForm from "../Login";
-import Menu from "../Menu";
-import Order from "../OnlineOrder";
+import Loader from "../Loader";
+
+const About = lazy(() => import("../About"));
+const BookingForm = lazy(() => import("../Booking"));
+const BookingConfirmation = lazy(() => import("../BookingConfirmation"));
+const Home = lazy(() => import("../Home"));
+const LoginForm = lazy(() => import("../Login"));
+const Menu = lazy(() => import("../Menu"));
+const Order = lazy(() => import("../OnlineOrder"));
+
+import "./Main.css";
 
 const Main = () => {
   const defaultDate = new Date();
@@ -35,26 +39,28 @@ const Main = () => {
 
   return (
     <main>
-      <Routes>
-        <Route path={ROUTES.home} element={<Home />} />
-        <Route
-          path={ROUTES.booking}
-          element={
-            <BookingForm
-              onDateChange={handleDateChange}
-              availableTimes={state.bookingDetails.time}
-            />
-          }
-        />
-        <Route
-          path={ROUTES.bookingConfirmation}
-          element={<BookingConfirmation />}
-        />
-        <Route path={ROUTES.menu} element={<Menu />} />
-        <Route path={ROUTES.orderOnline} element={<Order />} />
-        <Route path={ROUTES.about} element={<About />} />
-        <Route path={ROUTES.login} element={<LoginForm />} />
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path={ROUTES.home} element={<Home />} />
+          <Route
+            path={ROUTES.booking}
+            element={
+              <BookingForm
+                onDateChange={handleDateChange}
+                availableTimes={state.bookingDetails.time}
+              />
+            }
+          />
+          <Route
+            path={ROUTES.bookingConfirmation}
+            element={<BookingConfirmation />}
+          />
+          <Route path={ROUTES.menu} element={<Menu />} />
+          <Route path={ROUTES.orderOnline} element={<Order />} />
+          <Route path={ROUTES.about} element={<About />} />
+          <Route path={ROUTES.login} element={<LoginForm />} />
+        </Routes>
+      </Suspense>
     </main>
   );
 };

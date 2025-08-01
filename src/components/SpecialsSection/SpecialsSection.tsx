@@ -18,7 +18,7 @@ const SpecialsSection = () => {
         </div>
         <ul className="specials-list">
           {MENU_ITEMS.map((dish) => (
-            <li key={dish.id}>
+            <li key={dish.id} className="specials-item">
               <Card
                 id={dish.id}
                 name={dish.name}

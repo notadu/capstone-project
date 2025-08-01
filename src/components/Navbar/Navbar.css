@@ -31,7 +31,7 @@
   text-decoration: underline;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 991px) {
   .navbar {
     overflow: hidden;
     position: absolute;
@@ -40,6 +40,7 @@
     width: 100%;
     max-height: 0;
     transition: max-height 0.3s ease-in-out;
+    z-index: 1;
   }
 
   .navbar.open {
