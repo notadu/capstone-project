@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
 
 import BookingForm from "./BookingForm";
 
@@ -22,5 +23,24 @@ describe("BookingForm", () => {
     expect(timeSelect).toBeVisible();
     expect(guestsInput).toBeVisible();
     expect(occasionSelect).toBeVisible();
+  });
+
+  test("if error is shown when invalid data is added", async () => {
+    render(<BookingForm availableTimes={["17:00"]} />);
+    const nameInput = screen.getByRole("textbox", { name: "Name" });
+    const guestsInput = screen.getByLabelText("Number of guests");
+
+    expect(nameInput).toHaveValue("");
+    userEvent.type(nameInput, "a");
+
+    await waitFor(() => expect(nameInput).toHaveValue("a"));
+
+    userEvent.type(guestsInput, "2"); // focus out
+
+    await waitFor(() =>
+      expect(
+        screen.getByText("Please add at least two characters"),
+      ).toBeVisible(),
+    );
   });
 });
