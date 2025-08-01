@@ -1,7 +1,7 @@
 .about .container {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  flex-direction: column;
   gap: 20px;
 }
 
@@ -12,8 +12,8 @@
   height: auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .about .container {
-    flex-direction: column;
+    flex-direction: row;
   }
 }

@@ -45,7 +45,10 @@ const Order = () => {
       order: initialOrderItems,
     },
     validationSchema: object({
-      name: string().required("Required"),
+      name: string()
+        .min(2, "Please add at least two characters")
+        .max(50, "The name is too long! Please use less than 50 characters")
+        .required("Your name is required"),
       order: array().min(1, "Please add at least one item to your order"),
     }),
     onSubmit: () => {
@@ -113,12 +116,13 @@ const Order = () => {
         <input
           id="name"
           name="name"
+          autoComplete="name"
           value={formik.values.name}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
         {formik.touched.name && formik.errors.name && (
-          <div style={{ color: "red" }}>{formik.errors.name}</div>
+          <div className="error-text">{formik.errors.name}</div>
         )}
 
         <h2>Menu</h2>

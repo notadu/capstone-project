@@ -24,7 +24,7 @@
 
 .hero-text {
   flex: 1;
-  max-width: 50%;
+  max-width: 100%;
 }
 
 .hero-image {
@@ -34,6 +34,7 @@
   border-radius: 16px;
   position: relative;
   top: 70px;
+  display: none;
 }
 
 .hero-image img {
@@ -42,11 +43,11 @@
   object-fit: cover;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 600px) {
   .hero-text {
-    max-width: 100%;
+    max-width: 50%;
   }
   .hero-image {
-    display: none;
+    display: block;
   }
 }

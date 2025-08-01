@@ -4,8 +4,6 @@ import { date, number, object, string } from "yup";
 
 import { ROUTES } from "../../constants/routes";
 
-import "./Booking.css";
-
 interface FormValues {
   name: string;
   date: string;
@@ -61,13 +59,13 @@ const Booking = ({
 
   return (
     <div className="container">
-      <form className="booking-form" onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit}>
         <h1 className="title">Book a Table</h1>
-
         <label htmlFor="name">Name</label>
         <input
           id="name"
           name="name"
+          autoComplete="name"
           type="text"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -77,7 +75,6 @@ const Booking = ({
         {formik.errors.name && formik.touched.name ? (
           <div className="error-text">{formik.errors.name}</div>
         ) : null}
-
         <label htmlFor="date">Date</label>
         <input
           id="date"
