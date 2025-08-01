@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 
-import "./Footer.css";
+import FacebookIcon from "../../assets/facebook.svg?react";
+import InstaIcon from "../../assets/instagram.svg?react";
 import logoImg from "../../assets/lemon.png";
+import TwitterIcon from "../../assets/twitter.svg?react";
 import { ROUTES } from "../../constants/routes";
+
+import "./Footer.css";
 
 const Footer = () => {
   return (
@@ -56,11 +60,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label="Facebook"
                 >
-                  <img
-                    src="/facebook-icon.png"
-                    alt="Facebook"
-                    style={{ height: "24px" }}
-                  />
+                  <FacebookIcon />
                 </a>
               </li>
               <li>
@@ -70,11 +70,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label="Instagram"
                 >
-                  <img
-                    src="/instagram-icon.png"
-                    alt="Instagram"
-                    style={{ height: "24px" }}
-                  />
+                  <InstaIcon />
                 </a>
               </li>
               <li>
@@ -84,11 +80,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label="Twitter"
                 >
-                  <img
-                    src="/twitter-icon.png"
-                    alt="Twitter"
-                    style={{ height: "24px" }}
-                  />
+                  <TwitterIcon />
                 </a>
               </li>
             </ul>

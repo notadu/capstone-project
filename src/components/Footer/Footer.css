@@ -41,3 +41,15 @@
   margin-top: 2rem;
   text-align: center;
 }
+
+.footer-social ul {
+  display: flex;
+  gap: 8px;
+}
+.footer-social a {
+  color: #fff;
+}
+.footer-social svg {
+  width: 24px;
+  height: 24px;
+}
