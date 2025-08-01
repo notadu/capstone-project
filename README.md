@@ -41,7 +41,7 @@ To design and build a user-centric, accessible, and responsive front-end applica
     ```
 3. **Start the development server:**
     ```bash
-      npm run dev
+      npm start
     ```
 
-4. **Open http://127.0.0.1:5173 to view it in your browser**
+4. **Open http://localhost:5173/ to view it in your browser**
